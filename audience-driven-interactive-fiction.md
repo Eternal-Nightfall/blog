@@ -1,3 +1,12 @@
+---
+{
+    "title": "My Experience with Audience-Driven Interactive Fiction",
+    "date": "2025-11-18",
+    "author": "nixi",
+    "ps": "I really enjoy the idea of starting a blog. Maybe I'll write a few more posts. Who knows?"
+}
+---
+
 # My Experience with Audience-Driven Interactive Fiction
 ## But first, an introduction!
 This serves as my first blog post, so in the case that you don't know who I am, hiya! I'm Nixi, Nightfall's main headmate, and most of the time you'll see me around.  
@@ -20,7 +29,7 @@ After abandoning Enjoy the Ride, I came up with the idea of the Idyllic Ring. Wh
 A few months ago, I came up with the idea of AFSTYSS (a fate so tragic yet so sweet). It's a collection of two separate (but linking) stories called Fate and Tragedy. Tragedy has been in the works since the original idea was created, but Fate was recently coined.
 
 Tragedy is more similar to how the Idyllic Ring was meant to go: an innocent experience ruined by an outsiding factor. It links into the ARG-ness of Enjoy the Ride as well, giving more information about the protagonist to help eventually solve and finish the game. I don't want to give too much detail because as of the publishing of this blog post, Tragedy is not yet completely developed and I still wish to have the freedom to retcon things that don't make sense yet.  
-<small style="color:#999;">Also because I still want people to try solve it, and giving too much information ruins the fun.</small>
+<small>Also because I still want people to try solve it, and giving too much information ruins the fun.</small>
 
 Fate is the prequel to Tragedy, and follows the audience entering a casino (Fate's Casino / the Casino of Fate), initially because gambling is fun, but eventually realizing that while casinos are rigged, this one seems to be hiding too many secrets.  
 **(Legal notice: I do not endorse gambling, especially minors gambling since minors are Hack Club's target audience. [Be GambleAware&reg;](https://gambleaware.org/).)**
@@ -28,22 +37,3 @@ Fate is the prequel to Tragedy, and follows the audience entering a casino (Fate
 Fate is an excellent example of audience-driven interactive fiction: it takes place yet again in our personal channel. However, instead of polls, most of Fate takes shape in the form of puzzles. For example, the initial puzzle (that's still in progress currently) requires users to use an obscure Slack feature to solve the initial part of the puzzle, and there are also two paths to this puzzle which can't be found again if you chose one of them. **Your choices affect their fate.**
 
 Interactive fiction is fun enough, but working together with your friends is way more fun.
-
-<!-- Signature -->
-<hr/>
-<br/>
-<div style="display: flex; flex-direction: row-reverse; gap: 12px; align-items: center;">
-    <img 
-        src="https://rana.transfemme.dev/static/pfps/nixi.png" 
-        style="border-radius: 16px; width: 48px; height: auto;"
-        alt="Nixi's profile picture / face claim"
-    />
-    <div style="text-align: right;">
-        authored by<br>
-        <strong>Nixi Nightfall</strong>
-    </div>
-</div>
-
-<br/>
-<small style="color:#999;">P.S. I really enjoy the idea of starting a blog. Maybe I'll write a few more posts. Who knows?</small>
-
