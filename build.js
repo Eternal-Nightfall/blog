@@ -86,6 +86,7 @@ function buildPage(fileContent, metadata) {
 // List all Markdown files
 const blogs = fs.readdirSync('.').filter(x => x.endsWith(".md") && x !== "README.md");
 
+fs.mkdirSync('build')
 for (const fileName of blogs) {
     const fileContents = fs.readFileSync(fileName, 'utf-8');
 
