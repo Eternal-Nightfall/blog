@@ -4,9 +4,10 @@ const { marked } = require('marked');
 
 const HEADER = `<html>
     <head>
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
         <style>
             html, body {
-                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
                 padding: 48px;
                 color: #c6d0f5;
                 background: #303446;
@@ -24,7 +25,7 @@ const HEADER = `<html>
                 border-collapse: collapse;
                 background-color: #303446;
                 color: #c6d0f5;
-                font-family: "Inter", sans-serif;
+                font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
                 border: 1px solid #414559;
                 border-radius: 8px;
                 overflow: hidden;
