@@ -35,6 +35,8 @@ jobs:
       with:
         node-version: '22.x'
         cache: 'pnpm'
+        
+    - run: npm install -g pnpm
     - run: pnpm install --frozen-lockfile
     - run: node build.js
     - name: Setup Pages
