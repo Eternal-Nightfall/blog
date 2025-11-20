@@ -2,7 +2,7 @@
 The Nightfall system's blog!
 
 The GitHub repo can be found at [Eternal-Nightfall/blog](https://github.com/Eternal-Nightfall/blog).  
-The website version can be found at _soon(tm)_.
+The website version can be found at [eternal-nightfall.github.io/blog](https://eternal-nightfall.github.io/blog).
 
 ---
 
