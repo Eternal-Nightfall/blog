@@ -146,7 +146,7 @@ ${HEADER.replace('{META_TAGS}', `<meta property="og:title" content="Home" />
 <meta name="theme-color" content="#ea999c" />`)}
 ${marked(fs.readFileSync('README.md', 'utf-8').replace('.md', '.html'))}
 ${FOOTER}
-`.trim().split('\n').map(x => x.trim()).join(''))
+`.trim().split('\n').map(x => x.trim()).join(' '))
 
 fs.writeFileSync('build/feed.xml', `
 <?xml version="1.0" encoding="UTF-8" ?>
