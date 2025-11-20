@@ -70,6 +70,7 @@ const HEADER = `<html>
                 font-weight: 500;
             }
         </style>
+        {META_TAGS}
     </head>
     <body>`;
 
@@ -77,7 +78,18 @@ const FOOTER = `
     </body>
 </html>`
 
-function buildPage(fileContent, metadata) {
+function buildPage(fileContent, metadata, permalink) {
+    const META_TAGS = `
+<meta property="og:title" content="${metadata.title}" />
+<meta property="og:description" content="${metadata.summary}" />
+<meta property="og:url" content="${permalink}" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="${metadata.date}" />
+<meta property="article:author" content="${metadata.author.split('').map((x, i) => i == 0 ? x.toUpperCase() : x.toLowerCase()).join('')} Nightfall" />
+<meta property="og:site_name" content="Nightfall's Blog" />
+<meta name="theme-color" content="#ea999c" />
+    `.trim()
+
     return `${HEADER}
         ${marked(fileContent)}
         <hr/>
@@ -94,7 +106,7 @@ function buildPage(fileContent, metadata) {
             </div>
         </div>
         ${metadata.ps ? `<small>P.S. ${metadata.ps}</small>` : ``}
-        ${FOOTER}`.trim().split('\n').map(x => x.trim()).join('')
+        ${FOOTER}`.trim().split('\n').map(x => x.trim()).join('').replace('{META_TAGS}', META_TAGS);
 }
 
 // List all Markdown files
@@ -114,7 +126,7 @@ for (const fileName of blogs) {
     const metadata = JSON.parse(rawMetadata.trim());
     const contents = data.join('---\n');
 
-    fs.writeFileSync('build/' + fileName.replace('.md', '.html'), buildPage(contents, metadata))
+    fs.writeFileSync('build/' + fileName.replace('.md', '.html'), buildPage(contents, metadata, `https://eternal-nightfall.github.io/blog/${fileName.replace('.md', '.html')}`))
 
     posts.push({
         title: metadata.title,
@@ -126,7 +138,12 @@ for (const fileName of blogs) {
 }
 
 fs.writeFileSync('build/index.html', `
-${HEADER}
+${HEADER.replace('{META_TAGS}', `<meta property="og:title" content="Home" />
+<meta property="og:description" content="The Nightfall system's blog!" />
+<meta property="og:url" content="https://eternal-nightfall.github.io/blog" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Nightfall's Blog" />
+<meta name="theme-color" content="#ea999c" />`)}
 ${marked(fs.readFileSync('README.md', 'utf-8').replace('.md', '.html'))}
 ${FOOTER}
 `.trim().split('\n').map(x => x.trim()).join(''))
