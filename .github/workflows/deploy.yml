@@ -34,8 +34,8 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '22.x'
-        cache: 'npm'
-    - run: npm ci
+        cache: 'pnpm'
+    - run: pnpm install --frozen-lockfile
     - run: node build.js
     - name: Setup Pages
       uses: actions/configure-pages@v5
