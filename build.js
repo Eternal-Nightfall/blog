@@ -5,6 +5,7 @@ const { marked } = require('marked');
 const HEADER = `<html>
     <head>
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <style>
             html, body {
                 font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
