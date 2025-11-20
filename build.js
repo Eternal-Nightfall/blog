@@ -14,6 +14,18 @@ const HEADER = `<html>
                 background: #303446;
             }
 
+            @media (max-width: 768px) {
+                html, body {
+                    padding: 36px; /* tablet */
+                }
+            }
+
+            @media (max-width: 480px) {
+                html, body {
+                    padding: 24px; /* mobile */
+                }
+            }            
+
             small {
                 color: #737994;
             }
@@ -82,13 +94,18 @@ function buildPage(fileContent, metadata) {
             </div>
         </div>
         ${metadata.ps ? `<small>P.S. ${metadata.ps}</small>` : ``}
-        ${FOOTER}`.trim().split('\n').join('')
+        ${FOOTER}`.trim().split('\n').map(x => x.trim()).join('')
 }
 
 // List all Markdown files
 const blogs = fs.readdirSync('.').filter(x => x.endsWith(".md") && x !== "README.md");
 
-fs.mkdirSync('build')
+try {
+    fs.mkdirSync('build')
+} catch (_) {}
+
+const posts = [];
+
 for (const fileName of blogs) {
     const fileContents = fs.readFileSync(fileName, 'utf-8');
 
@@ -98,10 +115,38 @@ for (const fileName of blogs) {
     const contents = data.join('---\n');
 
     fs.writeFileSync('build/' + fileName.replace('.md', '.html'), buildPage(contents, metadata))
+
+    posts.push({
+        title: metadata.title,
+        path: fileName.replace('.md', '.html'),
+        time: new Date(metadata.date),
+        author: metadata.author,
+        summary: metadata.summary
+    })
 }
 
 fs.writeFileSync('build/index.html', `
 ${HEADER}
 ${marked(fs.readFileSync('README.md', 'utf-8').replace('.md', '.html'))}
 ${FOOTER}
-`.trim().split('\n').join(''))
+`.trim().split('\n').map(x => x.trim()).join(''))
+
+fs.writeFileSync('build/feed.xml', `
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>Nightfall's Blog</title>
+    <link>https://eternal-nightfall.github.io/blog</link>
+    <description>The Nightfall system's blog!</description>
+    ${posts.map(post => `
+        <item>
+            <title><![CDATA[${post.title}]]></title>
+            <link>https://eternal-nightfall.github.io/blog/${post.path}</link>
+            <pubDate>${post.time.toUTCString()}</pubDate>
+            <author><![CDATA[${post.author.split('').map((x, i) => i == 0 ? x.toUpperCase() : x.toLowerCase()).join('')} Nightfall]]></author>
+            <description><![CDATA[${post.summary}]]></description>
+        </item>
+    `)}
+  </channel>
+</rss>
+`.trim().split('\n').map(x => x.trim()).join(''))

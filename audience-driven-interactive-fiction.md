@@ -1,8 +1,9 @@
 ---
 {
     "title": "My Experience with Audience-Driven Interactive Fiction",
-    "date": "2025-11-18",
+    "date": "2025-11-18T00:00:00.000+00:00",
     "author": "nixi",
+    "summary": "Our first blog post, and a brief delve into the type of fiction I enjoy writing: interactive fiction!",
     "ps": "I really enjoy the idea of starting a blog. Maybe I'll write a few more posts. Who knows?"
 }
 ---
