@@ -106,7 +106,7 @@ function buildPage(fileContent, metadata, permalink) {
             </div>
         </div>
         ${metadata.ps ? `<small>P.S. ${metadata.ps}</small>` : ``}
-        ${FOOTER}`.trim().split('\n').map(x => x.trim()).join('').replace('{META_TAGS}', META_TAGS);
+        ${FOOTER}`.trim().split('\n').map(x => x.trim()).join(' ').replace('{META_TAGS}', META_TAGS);
 }
 
 // List all Markdown files
