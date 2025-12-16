@@ -90,6 +90,14 @@ function buildPage(fileContent, metadata, permalink) {
 <meta name="theme-color" content="#ea999c" />
     `.trim()
 
+    let rendered = marked(fileContent);
+
+    // Replace all instances of linked markdown files to their HTML file counterparts
+    rendered = rendered.replace(/<a[^>]*href="([^"]+\.md)"[^>]*>/g, (match, url) => {
+        const updatedUrl = url.replace('.md', '.html');
+        return match.replace(url, updatedUrl);
+    });
+
     return `${HEADER}
         ${marked(fileContent)}
         <hr/>
